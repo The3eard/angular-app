@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "userName": "admin",
+      "password": "admin",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "userName": "user",
+      "password": "user",
+      "profileId": "2"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "1",
+      "name": "administrator",
+      "read": "true",
+      "write": "true",
+      "delete": "true"
+    },
+    {
+      "id": "2",
+      "name": "user",
+      "read": "true",
+      "write": "false",
+      "delete": "false"
+    }
+  ]
+}
