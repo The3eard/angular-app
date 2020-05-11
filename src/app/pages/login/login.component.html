@@ -1,1 +1,57 @@
-<p>login works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>Login</h1>
+    </div>
+  </div>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="offset-md-3 col-md-6"
+  >
+    <div class="form-group">
+      <label for="username">Nombre de usuario</label>
+      <input
+        type="text"
+        id="userName"
+        class="form-control"
+        name="userName"
+        placeholder="Nombre de usuario"
+        formControlName="userName"
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        name="password"
+        formControlName="password"
+      /><br />
+    </div>
+    <button type="submit" id="login" name="login" class="btn btn-primary">
+      Loguearse
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      id="registro"
+      name="registro"
+      class="btn btn-secondary"
+      (click)="registro()"
+    >
+      Registrarse
+    </button>
+  </form>
+  <br />
+  <div class="row">
+    <div
+      class="offset-4 col-4 text-center p-3 mb-2 text-white"
+      *ngIf="mensaje"
+      [ngClass]="{ 'bg-success': mensajeSuccess, 'bg-danger': !mensajeSuccess }"
+    >
+      {{ mensaje }}
+    </div>
+  </div>
+</div>
