@@ -9,7 +9,7 @@
     <button mat-button [routerLink]="'form'">Formulario</button
     ><button mat-button [routerLink]="'table'">Tabla</button>
     <button mat-mini-fab color="warn">
-      <fa-icon [icon]="faSignOutAlt"></fa-icon>
+      <fa-icon [icon]="faSignOutAlt" (click)="logOut()"></fa-icon>
     </button>
   </span>
 </mat-toolbar>

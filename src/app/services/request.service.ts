@@ -22,6 +22,19 @@ export class RequestService {
       .pipe(catchError(this.handleError));
   }
 
+  requestNba(url: string, httpParams: HttpParams): Observable<Object> {
+    const params = {};
+    httpParams.keys().forEach(k => {
+      params[k] = httpParams.get(k);
+    });
+    let headers = new HttpHeaders();
+    headers = headers.append('x-rapidapi-host', 'free-nba.p.rapidapi.com');
+    headers = headers.append('x-rapidapi-key', '3051d019c5msh1af9a8a2705638ep15676cjsn0f0733ee7ee8');
+    return this.http
+      .get(url, { params, headers })
+      .pipe(catchError(this.handleError));
+  }
+
   post(url: string, httpParams?: HttpParams): Observable<Object> {
     const headers = new HttpHeaders();
     headers.append('accept', 'application/json');
@@ -36,19 +49,15 @@ export class RequestService {
       .pipe(catchError(this.handleError));
   }
 
-  // ? Preguntar como detecta si el fallo es de cliente o de servidor
-  // ! COPIADO ! //
-
   private handleError(error: HttpErrorResponse) {
     let errorMessage = {};
     if (error.error instanceof ErrorEvent) {
-      // client-side error
       errorMessage = { error: error.error.message };
     } else {
-      // server-side error
       errorMessage = { errorCode: error.status, message: error.message };
     }
-    // window.alert(errorMessage);
     return throwError(errorMessage);
   }
+
+
 }

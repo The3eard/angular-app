@@ -11,6 +11,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavMenuComponent } from './components/navMenu/navMenu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormComponent } from "./pages/form/form.component";
+import { TableComponent } from "./pages/table/table.component";
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -34,6 +37,8 @@ import {
     LoginComponent,
     HomeComponent,
     NavMenuComponent,
+    FormComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,7 @@ import {
     MatToolbarModule,
     MatIconModule,
     FontAwesomeModule
+
   ],
   providers: [
     RequestService,
