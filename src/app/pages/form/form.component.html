@@ -1,3 +1,110 @@
-<p>
-  form works!
-</p>
+<div id="flipContainer" class="container col-12 d-flex justify-content-center">
+  <div *ngIf="showForm" id="front" class="row col-8">
+    <mat-card class="col-12 mt-4">
+      <div class="jumbotron jumbotron-fluid d-flex justify-content-center">
+        <div class="container d-flex justify-content-center">
+          <h1 class="display-5">Formulario</h1>
+        </div>
+      </div>
+      <form
+        id="formulario"
+        (submit)="show()"
+        [formGroup]="formulario"
+        class="col-12"
+      >
+        <div class="form-group col-12 d-flex justify-content-center">
+          <mat-form-field class="col-10">
+            <mat-label for="nombre" class="">Nombre</mat-label>
+            <input
+              matInput
+              type="text"
+              id="nombre"
+              class="col-12"
+              formControlName="nombre"
+              (change)="show($event)"
+              minlength="3"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group col-12 d-flex justify-content-center">
+          <mat-form-field class="col-10">
+            <mat-label for="apellidos" class="">Apellidos</mat-label>
+            <input
+              matInput
+              type="text"
+              id="apellidos"
+              class=""
+              formControlName="apellidos"
+              (change)="show($event)"
+              minlength="10"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group col-12 d-flex justify-content-center">
+          <mat-form-field class="col-10">
+            <mat-label for="edad" class="">Edad</mat-label>
+            <input
+              matInput
+              type="text"
+              id="edad"
+              class=""
+              formControlName="edad"
+              (change)="show($event)"
+              minlength="1"
+              maxlength="2"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group col-12 d-flex justify-content-center">
+          <mat-form-field class="col-10">
+            <mat-label for="tel" class="">Teléfono</mat-label>
+            <input
+              matInput
+              type="text"
+              id="tel"
+              class=""
+              formControlName="tel"
+              (change)="show($event)"
+              minlength="9"
+              maxlength="9"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group col-12 d-flex justify-content-center">
+          <input
+            class="btn col-3"
+            value="Ok"
+            [disabled]="!formulario.valid"
+            [ngClass]="{
+              'btn-primary': formulario.valid,
+              'btn-danger': !formulario.valid
+            }"
+            (click)="submit()"
+          />
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  <div *ngIf="showSubmit" id="back" class="col-12 container">
+    <div class="col-12 d-flex row justify-content-center">
+      <div class="card row col-6 mt-4">
+        <img
+          class="photo"
+          src="https://s.tcdn.co/b51/532/b51532df-9f7b-38f5-86d0-c2a39c3bf0d3/9.png"
+        />
+        <div class="info">
+          <h1 id="name">{{ nombre }}</h1>
+          <div class="text">{{ apellidos }}</div>
+          <br />
+          <h3 id="phn">Telefono: {{ tel }}</h3>
+          <h3 id="mailadd" type="email">Edad: {{ edad }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 row justify-content-center mt-4">
+      <button mat-raised-button color="accent" type="button" (click)="reload()">
+        Volver atrás
+      </button>
+    </div>
+  </div>
+</div>
