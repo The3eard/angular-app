@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'form', component: FormComponent, canActivate: [AuthGuardService] },
   { path: 'table', component: TableComponent, canActivate: [AuthGuardService] },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

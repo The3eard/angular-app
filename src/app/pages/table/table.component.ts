@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core'
-import { NbaService } from 'src/app/services/nba.service'
-import { FormGroup, FormControl } from '@angular/forms'
-import { MatInput } from '@angular/material'
-import { forkJoin } from 'rxjs'
-
+import { Component, OnInit } from '@angular/core';
+import { NbaService } from 'src/app/services/nba.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-table',
@@ -12,37 +9,37 @@ import { forkJoin } from 'rxjs'
 })
 export class TableComponent implements OnInit {
 
-  searchForm: FormGroup
-  b
-  text
-  data
+  searchForm: FormGroup;
+  b: boolean;
+  text: string;
+  data: any;
+  headers = ['First Name', 'Last name', 'Height', 'Weight', 'Position', 'Team'];
 
   constructor(private nbaService: NbaService) {
     this.searchForm = new FormGroup({
-      'text': new FormControl('')
-    })
+      text: new FormControl('')
+    });
   }
 
   ngOnInit() {
-    this.b = false
+    this.b = false;
   }
 
-  headers = ['First Name', 'Last name', 'Height', 'Weight', 'Position', 'Team']
   search() {
-    this.text = this.searchForm.get('text').value
+    this.text = this.searchForm.get('text').value;
 
     if (this.text.length > 0) {
       this.nbaService.search(this.text).subscribe(data => {
-        this.data = data.data
-        this.show()
-      })
+        this.data = data.data;
+        this.show();
+      });
     } else {
-      console.log('fail')
+      console.log('fail');
     }
   }
 
   show() {
-    console.log(this.data)
-    this.b = true
+    console.log(this.data);
+    this.b = true;
   }
 }

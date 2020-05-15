@@ -10,7 +10,7 @@ export class RequestService {
 
   constructor(private http: HttpClient) { }
 
-  request(url: string, httpParams?: HttpParams): Observable<Object> {
+  request(url: string, httpParams?: HttpParams): Observable<any> {
     const params = {};
     if (httpParams) {
       httpParams.keys().forEach(k => {
@@ -22,7 +22,7 @@ export class RequestService {
       .pipe(catchError(this.handleError));
   }
 
-  requestNba(url: string, httpParams: HttpParams): Observable<Object> {
+  requestNba(url: string, httpParams: HttpParams): Observable<any> {
     const params = {};
     httpParams.keys().forEach(k => {
       params[k] = httpParams.get(k);
@@ -35,7 +35,7 @@ export class RequestService {
       .pipe(catchError(this.handleError));
   }
 
-  post(url: string, httpParams?: HttpParams): Observable<Object> {
+  post(url: string, httpParams?: HttpParams): Observable<any> {
     const headers = new HttpHeaders();
     headers.append('accept', 'application/json');
     const params = {};
