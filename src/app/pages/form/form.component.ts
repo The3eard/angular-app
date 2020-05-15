@@ -21,7 +21,8 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.formulario = new FormGroup(
       {
-        nombre: new FormControl('', Validators.required),
+        // !  problem
+        nombre: new FormControl('', Validators.required), // ? Validators.min(3)
         apellidos: new FormControl('', Validators.required),
         edad: new FormControl('', Validators.required),
         tel: new FormControl('', Validators.required),
