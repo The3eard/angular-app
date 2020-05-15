@@ -46,7 +46,8 @@ export class FormComponent implements OnInit {
   }
 
   reload() {
-    window.location.reload();
+    this.formulario.reset();
+    this.showForm = true;
+    this.showSubmit = false;
   }
-
 }
