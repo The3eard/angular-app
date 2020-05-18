@@ -30,6 +30,12 @@ export class FormComponent implements OnInit {
     );
   }
 
+  /**
+   * Función que muestra por consola eventos
+   * @param event - Evento de la web
+   * @returns - Hace cosas nachis
+   */
+
   show(event) {
     const idSource = event.target.id;
     console.log(this.formulario.controls[idSource].valid);
@@ -43,7 +49,6 @@ export class FormComponent implements OnInit {
     this.edad = this.formulario.value.edad;
     this.showForm = false;
     this.showSubmit = true;
-    console.log('esto funciona');
   }
 
   reload() {
